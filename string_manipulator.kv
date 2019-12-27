@@ -1,0 +1,38 @@
+#: import main main
+
+<Main_Page>:
+    command_input_text: command_input
+    output_text: output
+
+    BoxLayout:
+        orientation: "vertical"
+        id: main
+
+        BoxLayout:
+            id: top
+            size_hint: 1, .1
+
+            TextInput:
+                size_hint: .7, 1
+                id: command_input
+                font_size: 32
+                multiline: True
+
+            Button:
+                id: search_button
+                size_hint: .3, 1
+                text: "Run"
+                on_release: root.run_in_thread()
+
+        ScrollView:
+            size_hint: 1, .9
+            id: scroll
+             
+            TextInput:
+                size_hint: 1, None
+                height: max(self.minimum_height, scroll.height)
+                id: output
+                text : ''
+                font_size: 16
+                allow_copy: True
+                multiline: True
