@@ -4,6 +4,8 @@
     command_input_text: command_input
     output_text: output
 
+
+
     BoxLayout:
         orientation: "vertical"
         id: main
@@ -29,10 +31,21 @@
             id: scroll
              
             TextInput:
+                #scroll_y : 1
+                # size_hint: (None, None)
+                # width: scroller.width
+                # height: max(self.minimum_height, scroller.height)
+                # selection_color: (1,1,1,0.125)
+                # size_hint: 1, None
+                # height: max(self.minimum_height, scrlv.height)
+                #size_hint: .7, 1
                 size_hint: 1, None
                 height: max(self.minimum_height, scroll.height)
                 id: output
                 text : ''
+                #readonly : True
                 font_size: 16
                 allow_copy: True
                 multiline: True
+            # Label:
+            #     text: '>seq0 \n FQTWEEFSRAAEKLYLADPMKVRVVLKYRHVDGNLCIKVTDDLVCLVYRTDQAQDVKKIEKF'

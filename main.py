@@ -331,6 +331,17 @@ def boxshade():
     #output = browser.find_element_by_id('outputContent').text
     #puts all results in the same file
 
+def degap():
+    try:
+        sequences = open_file['loaded'].sequence_list
+        #formats the sequences to fasta format
+        for s in sequences:
+            s.sequence = s.sequence.replace('-', '')
+
+        open_file['loaded'].sequence_list = sequences
+        return view()
+    except:
+        return log_error('Degap has failed, check that a file is loaded in and that the sequences are valid.')
 
 def help_u():
     try:
@@ -420,6 +431,9 @@ class Main_Page(Screen):
                     save(commands[1])
                 elif 'help' in command.lower():
                     result =  help_u()
+                
+                elif 'degap' in command.lower():
+                    result = degap()
 
                 elif 'boxshade' in command.lower():
                     result = boxshade()
